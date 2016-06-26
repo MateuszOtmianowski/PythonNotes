@@ -1,5 +1,13 @@
 # PythonNotes
 
+General:
+- use "for index,a in enumerate(areas)" to get elements from a list with corresponding indexes, for dictionaries use dict.items();
+- to iterate through 1D numpy array use "for x in my_array:", for 2D numpy array "for x in np.nditer(my_array):";
+- looping through pandas data frame is done with "for lab, row in brics.iterrows():";
+- for lab, row in cars.iterrows():
+    cars.loc[lab,"COUNTRY"]=row['country'].upper() <- creates new column (upper letter version of country column), cars['COUNTRY']=cars['country'].apply(str.upper) is equivalent and more efficient;
+
+
 Visualisation:
 - pyplot is used for data visualisation, it is a part of matplotlib package;
 - to import it use: import matplotlib.pyplot as plt;
