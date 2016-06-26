@@ -17,4 +17,10 @@ Visualisation:
 Dictionaries:
 - dictionary.keys() gets keys from a dictionary;
 - del(dictionary['key']) deletes given key;
-- 
+
+Pandas:
+- the DataFrame is one of Pandas' most important data structures. It's basically a way to store tabular data, where you can label the rows and the columns;
+- import pandas as pd it does what it says ;);
+- data frame can be created from the dictionary with variables defined in different keyes ex. 'year':[xxxxx], 'pop':[xxxx], use pd.DataFrame(my_dict) for transformation;
+- cars.index=row_labels sets row labels to names specified in row_labels, DO NOT use () after the index;
+- pd.read_csv(file_name) reads in csv file, index_col argument is used to specify which column in the CSV file should be used as a row label;
