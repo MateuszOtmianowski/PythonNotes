@@ -48,4 +48,9 @@ Numpy boolean operators:
 - ex. logical_and(my_house<11,your_house<11);
 - to iterate through 1D numpy array use "for x in my_array:", for 2D numpy array "for x in np.nditer(my_array):";
 
+Data analysis:
+- titanic['Age'].fillna(titanic['Age'].median()) <- replaces nans with median for the column;
+- .unique() returns unique values;
+- 
+
 
