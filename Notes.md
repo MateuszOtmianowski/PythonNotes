@@ -5,7 +5,7 @@ General:
 - to open files open('file_name.cv','r') function is used, it take two arguments: file name and read mode, the function creates object of a File class; 
 - File objects have a read() method that returns a string representation of the text in a file, it is method so it is used as file.read();
 - split() method turns a string into a list of strings, the method takes a string input corresponding to the delimiter, or separator. This delimiter determines how the string is split into elements in a list;
-- 
+- csv modul is useful for import csv files, use then data=list(csv.reader(open('file_name.csv')))
 
 Visualisation:
 - pyplot is used for data visualisation, it is a part of matplotlib package;
@@ -37,7 +37,7 @@ Pandas:
 - df.loc[['X1','X2']] selects columns x1 and x2 as a data frame;
 - cars.loc[['RU','MOR'],['country','drives_right']] selects rows RU i MOR, and columns 'country' and 'drives_right' from cars data frame;
 - print(cars.loc[:, ['X1']]) prints all rows and column X1 as a data frame, more columns can be specified alongside X1; 
-- numpy can be used to filter values in columns, you must create boolean panas series to do it, ex. df[df['col1'>100]];
+- numpy can be used to filter values in columns, you must create boolean panadas series to do it, ex. df[df['col1'>100]];
 - cars[np.logical_and(cars['cars_per_cap']>100,cars['cars_per_cap']<500)];
 - looping through pandas data frame is done with "for lab, row in brics.iterrows():";
 - for lab, row in cars.iterrows():
