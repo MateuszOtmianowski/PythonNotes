@@ -13,7 +13,7 @@ Visualisation:
 - plt.plot(x,y) is used for a line plot, you must then, as a general rule, use plt.show() to display the plot;
 - plt.scattter(x,y) is used for scatter plots;
 - plt.xscale('log') changes x-axis to logarithimc scale;
-- plt.hist(x) creates histogram, a default number of bins is 10, you can change this value you can specify bins argument;
+- plt.hist(x) creates histogram, a default number of bins is 10, you can change this value with the bins argument;
 - plt.clf() cleans plot;
 - plt.xlabel() sets label for a x-axis, y-axis use ylabel();
 - plt.title() creates a title for a plot;
@@ -28,16 +28,16 @@ Dictionaries:
 Pandas:
 - the DataFrame is one of Pandas' most important data structures. It's basically a way to store tabular data, where you can label the rows and the columns;
 - import pandas as pd it does what it says ;);
-- data frame can be created from the dictionary with variables defined in different keyes ex. 'year':[xxxxx], 'pop':[xxxx], use pd.DataFrame(my_dict) for transformation;
-- cars.index=row_labels sets row labels to names specified in row_labels, DO NOT use () after the index;
+- data frame can be created from the dictionary with variables defined in different keyes ex. 'year':[x,x,x,x,x], 'pop':[x,x,x,x,x], use pd.DataFrame(my_dict) for transformation;
+- df.index=row_labels sets row labels to names specified in custom row_labels, DO NOT use () after the index;
 - pd.read_csv(file_name) reads in csv file, index_col argument is used to specify which column in the CSV file should be used as a row label;
 - columns can be selected as pandas series with single brackets ex. df['col'] or as a data frame with double brackets i.e. df[['col']];
-- rows can be selected as a slice with df[0:3], only as integer values corresponding to rows, also naming rows by index (df[1,2,3]) does not work;
+- rows can be selected as a slice with df[0:3], only as integer values corresponding to rows, naming rows by index (df[1,2,3]) does not work;
 - for more advanced filtering use loc and iloc, the basic difference between the two is that in loc we use column names, and in iloc column indexes;
 - df.loc[['X1','X2']] selects columns x1 and x2 as a data frame;
 - cars.loc[['RU','MOR'],['country','drives_right']] selects rows RU i MOR, and columns 'country' and 'drives_right' from cars data frame;
 - print(cars.loc[:, ['X1']]) prints all rows and column X1 as a data frame, more columns can be specified alongside X1; 
-- numpy can be used to filter values in columns, you must create boolean panadas series to do it, ex. df[df['col1'>100]];
+- numpy can be used to filter values in columns, you must create boolean panadas series to do it, ex. df[df['col1']>100];
 - cars[np.logical_and(cars['cars_per_cap']>100,cars['cars_per_cap']<500)];
 - looping through pandas data frame is done with "for lab, row in brics.iterrows():";
 - for lab, row in cars.iterrows():
