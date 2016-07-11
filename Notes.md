@@ -6,6 +6,14 @@ General:
 - File objects have a read() method that returns a string representation of the text in a file, it is method so it is used as file.read();
 - split() method turns a string into a list of strings, the method takes a string input corresponding to the delimiter, or separator. This delimiter determines how the string is split into elements in a list;
 - csv modul is useful for import csv files, use then data=list(csv.reader(open('file_name.csv')))
+- list comprehension: apple_prices_doubled=[2*apple_price for apple_price in apple_prices] <- it doubles every apple price in the apple_prices list and creates the list out of it;
+- to find the biggest value in a list it is safer to assign value None to the comparison variable as in following example: 
+        max_value = None
+        for i in values:
+            if max_value is None or i > max_value:
+            max_value = i
+- Comparing a value to None will usually cause an error. When the Python interpreter evaluates a Boolean statement that contains or, like max_value is None or i > max_value, it will evaluate the statements in order. If the first statement is True, it won't evaluate the second statement. This is to save time, since if one statement is True, the whole or conditional is True.
+- 
 
 Visualisation:
 - pyplot is used for data visualisation, it is a part of matplotlib package;
