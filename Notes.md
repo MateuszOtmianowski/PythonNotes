@@ -13,7 +13,7 @@ General:
             if max_value is None or i > max_value:
             max_value = i
 - Comparing a value to None will usually cause an error. When the Python interpreter evaluates a Boolean statement that contains or, like max_value is None or i > max_value, it will evaluate the statements in order. If the first statement is True, it won't evaluate the second statement. This is to save time, since if one statement is True, the whole or conditional is True.
-- 
+- fdf
 
 Visualisation:
 - pyplot is used for data visualisation, it is a part of matplotlib package;
