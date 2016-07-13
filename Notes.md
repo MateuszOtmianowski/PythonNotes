@@ -60,7 +60,7 @@ Data analysis:
 - titanic['Age'].fillna(titanic['Age'].median()) <- replaces nans with median for the column;
 - .unique() returns unique values;
 
-re package and regular expressions:
+re module and regular expressions:
 - The special character "." is used to indicate that any character can be put in its place;
 - We can use "^" to match the start of a string and "$" to match the end of string. "^a" will match all strings that start with "a". "a$" will match all strings that end with "a";
 - With re.search(regex, string), we can check if string is a match for regex. If it is, it will return a match object. If it isn't, it will return None;
@@ -72,4 +72,25 @@ re package and regular expressions:
 - using curly brackets ("{" and "}"), we can indicate that a pattern should repeat. If we were matching any 4-digit number, we could repeat the pattern "[0-9]" 4 times by writing "[0-9]{4}";
 - findall() returns a list of substrings that match the provided regular expression. re.findall("[a-z]", "abc123") would return ["a", "b", "c"], since those are the substrings that match the regular expression;
 
+##'time' module
+- The time module deals primarily with Unix timestamps. A Unix timestamp is a simple floating point value, with no explicit mention of day, month, or year. This floating point value represents the number of seconds that have passed since the epoch. The epoch is the first second of the year 1970. So, a timestamp of 0.0 would represent the epoch, and a timestamp of 60.0 would represent one minute after the epoch. Any date after 1970 can be represented this way;
+- To get the Unix timestamp for the current time, we use the time() function within the time module;
+- We can convert a timestamp to a more human-readable form using the gmtime() function within the time module. The gmtime() function takes a timestamp as an argument, and returns an instance of the struct_time class. Each struct_time instance has some properties that represent the current time. The following integer values are just a few of these properties:
+        - tm_year: The year of the timestamp
+        - tm_mon: The month of the timestamp (1-12)
+        - tm_mday: The day in the month of the timestamp (1-31)
+        - tm_hour: The hour of the timestamp (0-23)
+        - tm_min: The minute of the timestamp (0-59)
+- the time module deals primarily with timestamps in UTC. The datetime module has better support for working extensively with dates. With datetime, it is easier to work with different time zones and perform arithmetic (adding days, for example) on dates;
+- The datetime module contains a datetime class to represent points in time. datetime instances look similar to struct_time instances, and have the following properties: year, month, day, hour, minute, second, microsecond. To get the datetime instance representation of the current time, the datetime class has a now() class method. Class methods are called on the class itself, so we would write datetime.datetime.now() to create a datetime instance representing the current time. The first datetime is the module, .datetime is the class, and .now() is the class method;
+- We know how to represent dates, but we'd also like to perform arithmetic on dates. Since adding a day, week, month, etc. to a date can be tedious to do from scratch, the datetime module provides the timedelta class. We can create an instance of the timedelta class that represents a span of time. Then we can add or subtract it from instances of the datetime class ex. diff = datetime.timedelta(weeks = 3, days = 2);
+- strftime() takes a formatted string as its input. Format strings contain special indicators, usually preceded by a "%" character, that indicate where a certain value should go. march3 = datetime.datetime(year = 2010, month = 3, day = 3) /n pretty_march3 = march3.strftime("%b %d, %Y") /n
+- Just as we can convert a datetime object into a formatted string, we can also convert a formatted string into a datetime object. The datetime class (datetime.datetime) contains a class method called strptime() which takes two arguments: the date string (e.g. "Mar 03, 2010"), the format string (e.g. "%b %d, %Y") ex. datetime.datetime.strptime("Mar 03, 2010", "%b %d, %Y");
+- datetime.datetime.fromtimestamp() is used to convert the Unix timestamp to a datetime;
 
+Numpy:
+- to read in dataset use genfromtxt(), we need to pass a keyword argument called delimiter that indicates what character is the delimiter ex. np.genfromtxt('world_alcohol.csv',delimiter=',');
+- we can directly construct arrays from lists using the array() method;
+- we can use the shape property on arrays to figure out how many elements are in an array. For vectors, the shape property contains a tuple with 1 element. A tuple is a kind of list where the elements can't be changed;
+- Each value in a NumPy array has to have the same data type. You can check the data type of a NumPy array using the dtype property;
+- 
