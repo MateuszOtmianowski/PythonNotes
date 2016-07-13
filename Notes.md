@@ -59,6 +59,17 @@ Numpy boolean operators:
 Data analysis:
 - titanic['Age'].fillna(titanic['Age'].median()) <- replaces nans with median for the column;
 - .unique() returns unique values;
-- 
+
+re package and regular expressions:
+- The special character "." is used to indicate that any character can be put in its place;
+- We can use "^" to match the start of a string and "$" to match the end of string. "^a" will match all strings that start with "a". "a$" will match all strings that end with "a";
+- With re.search(regex, string), we can check if string is a match for regex. If it is, it will return a match object. If it isn't, it will return None;
+- the regular expression "[bcr]at" would be matched by strings with the substrings "bat", "cat", and "rat", but nothing else. We indicate that the first character in the regular expression can be either a "b", "c" or "r";
+- In regular expressions, escaping a character means indicating that you don't want the character to do anything special, and that it should be treated as any other character would be. We use "\" (backslash) to escape characters in regular expressions;
+- To combine regular expressions, we use the "|" character. For example, "cat|dog" would be matched by "catfish" and "hotdog", since both these strings match either "cat" or "dog";
+- The re module provides a sub() method that takes the following parameters (in the following order): 1. pattern - The regular expression to match, 2. repl    - The string to replace the matched substring with, 3. string  - The string in which we would like to replace occurrences of the pattern with repl. So, if we were to call re.sub("yo", "hello", "yo world"), the function will replace "yo" with "hello" in "yo world", producing the result "hello world". The sub() function simply returns the original string if pattern is not found;
+- years could be searched as follows "[0-9][0-9][0-9][0-9]";
+- using curly brackets ("{" and "}"), we can indicate that a pattern should repeat. If we were matching any 4-digit number, we could repeat the pattern "[0-9]" 4 times by writing "[0-9]{4}";
+- findall() returns a list of substrings that match the provided regular expression. re.findall("[a-z]", "abc123") would return ["a", "b", "c"], since those are the substrings that match the regular expression;
 
 
