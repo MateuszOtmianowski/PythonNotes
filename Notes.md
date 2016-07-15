@@ -5,14 +5,14 @@ General:
 - to open files open('file_name.csv','r') function is used, it take two arguments: file name and read mode, the function creates object of a File class; 
 - File objects have a read() method that returns a string representation of the text in a file, it is method so it is used as file.read();
 - split() method turns a string into a list of strings, the method takes a string input corresponding to the delimiter, or separator. This delimiter determines how the string is split into elements in a list;
-- csv modul is useful for import csv files, use then data=list(csv.reader(open('file_name.csv')))
+- csv module is useful for importing csv files, use then data=list(csv.reader(open('file_name.csv','r')))
 - list comprehension: apple_prices_doubled=[2*apple_price for apple_price in apple_prices] <- it doubles every apple price in the apple_prices list and creates the list out of it;
-- to find the biggest value in a list it is safer to assign value None to the comparison variable as in following example: 
+- to find the biggest value in a list it is safer to assign value None to the comparison variable then for example 0 as in following example: 
         max_value = None
         for i in values:
             if max_value is None or i > max_value:
             max_value = i
-- Comparing a value to None will usually cause an error. When the Python interpreter evaluates a Boolean statement that contains or, like max_value is None or i > max_value, it will evaluate the statements in order. If the first statement is True, it won't evaluate the second statement. This is to save time, since if one statement is True, the whole or conditional is True.
+- Comparing a value to None will usually cause an error. When the Python interpreter evaluates a Boolean statement that contains or, like 'max_value is None or i > max_value', it will evaluate the statements in order. If the first statement is True, it won't evaluate the second statement. This is to save time, since if one statement is True, the whole or conditional is True.
 - fdf
 
 Visualisation:
@@ -21,7 +21,7 @@ Visualisation:
 - plt.plot(x,y) is used for a line plot, you must then, as a general rule, use plt.show() to display the plot;
 - plt.scattter(x,y) is used for scatter plots;
 - plt.xscale('log') changes x-axis to logarithimc scale;
-- plt.hist(x) creates histogram, a default number of bins is 10, you can change this value with the bins argument;
+- plt.hist(x) creates histogram, the default number of bins is 10, you can change this value with the bins argument;
 - plt.clf() cleans plot;
 - plt.xlabel() sets label for a x-axis, y-axis use ylabel();
 - plt.title() creates a title for a plot;
@@ -35,9 +35,9 @@ Dictionaries:
 
 Pandas:
 - the DataFrame is one of Pandas' most important data structures. It's basically a way to store tabular data, where you can label the rows and the columns;
-- import pandas as pd it does what it says ;);
+- use 'import pandas as pd' to import;
 - data frame can be created from the dictionary with variables defined in different keyes ex. 'year':[x,x,x,x,x], 'pop':[x,x,x,x,x], use pd.DataFrame(my_dict) for transformation;
-- df.index=row_labels sets row labels to names specified in custom row_labels, DO NOT use () after the index;
+- 'df.index=row_labels' sets row labels to names specified in custom row_labels, DO NOT use () after the index;
 - pd.read_csv(file_name) reads in csv file, index_col argument is used to specify which column in the CSV file should be used as a row label;
 - columns can be selected as pandas series with single brackets ex. df['col'] or as a data frame with double brackets i.e. df[['col']];
 - rows can be selected as a slice with df[0:3], only as integer values corresponding to rows, naming rows by index (df[1,2,3]) does not work;
