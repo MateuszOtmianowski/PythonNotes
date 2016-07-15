@@ -2,7 +2,7 @@
 
 General:
 - use "for index,a in enumerate(areas)" to get elements from a list with corresponding indexes, for dictionaries use dict.items();
-- to open files open('file_name.cv','r') function is used, it take two arguments: file name and read mode, the function creates object of a File class; 
+- to open files open('file_name.csv','r') function is used, it take two arguments: file name and read mode, the function creates object of a File class; 
 - File objects have a read() method that returns a string representation of the text in a file, it is method so it is used as file.read();
 - split() method turns a string into a list of strings, the method takes a string input corresponding to the delimiter, or separator. This delimiter determines how the string is split into elements in a list;
 - csv modul is useful for import csv files, use then data=list(csv.reader(open('file_name.csv')))
