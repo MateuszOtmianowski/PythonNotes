@@ -13,7 +13,7 @@ General:
             if max_value is None or i > max_value:
             max_value = i
 - Comparing a value to None will usually cause an error. When the Python interpreter evaluates a Boolean statement that contains or, like 'max_value is None or i > max_value', it will evaluate the statements in order. If the first statement is True, it won't evaluate the second statement. This is to save time, since if one statement is True, the whole or conditional is True.
-- fdf
+- Scientific notation is a way to condense how very large or very precise numbers are displayed. We can represent 100 in scientific notation as 1e+02. The e+02 indicates that we should multiply what comes before it by 10 ^ 2(10 to the power 2, or 10 squared). This results in 1 * 100, or 100. Thus, 1.98600000e+03 is actually 1.986 * 10 ^ 3, or 1986. 1000000000000000 can be written as 1e+15;
 
 Visualisation:
 - pyplot is used for data visualisation, it is a part of matplotlib package;
@@ -36,6 +36,8 @@ Dictionaries:
 Pandas:
 - the DataFrame is one of Pandas' most important data structures. It's basically a way to store tabular data, where you can label the rows and the columns;
 - use 'import pandas as pd' to import;
+- data_frame.head() returns first 5 rows, n arguments specifies how many rows will be displayed;
+- you can use the shape attribute to understand the dimensions of the DataFrame. The shape attribute returns a tuple of integers representing the number of rows followed by the number of columns;
 - data frame can be created from the dictionary with variables defined in different keyes ex. 'year':[x,x,x,x,x], 'pop':[x,x,x,x,x], use pd.DataFrame(my_dict) for transformation;
 - 'df.index=row_labels' sets row labels to names specified in custom row_labels, DO NOT use () after the index;
 - pd.read_csv(file_name) reads in csv file, index_col argument is used to specify which column in the CSV file should be used as a row label;
@@ -50,6 +52,12 @@ Pandas:
 - looping through pandas data frame is done with "for lab, row in brics.iterrows():";
 - for lab, row in cars.iterrows():
     cars.loc[lab,"COUNTRY"]=row['country'].upper() <- creates new column (upper letter version of country column), cars['COUNTRY']=cars['country'].apply(str.upper) is equivalent and more efficient;
+- While there are many ways to normalize data, one of the simplest ways is to divide all of the values in a column by that column's maximum value. This way, all of the columns will range from 0 to 1. To calculate the maximum value of a column, use the Series method max();
+- The pivot_table method borrows it's name from pivot tables in Excel and it works in a similar way, ex. titanic_survival.pivot_table(index="pclass", values="survived", aggfunc=np.mean) or titanic_survival.pivot_table(index="pclass", values=["age", "survived"], aggfunc=np.mean);
+- Using the 'dropna' method will drop any rows that contain missing values. We can use the subset argument to only drop rows if certain columns have missing value ex. new_titanic_survival = titanic_survival.dropna(subset=["age", "sex"]);
+- .iloc works by position (row/column number), .loc instead addresses rows and columns by index, not position, i.e. if you delete some rows, loc will be returning rows by their original indexes;
+- reset_index() method recalculates indexes so they begin from 0, useful if index numbers are distored by for example 'dropna' method, The drop keyword argument specifies whether or not to make a dataframe column with the index values. If True, it won't, if False, it will. We'll almost always want to set it to True;
+- By default, .apply() will iterate through each column in a dataframe, and perform a function on it. The column will be passed into the function. The result from the function will be combined with all of the other results, and placed into a new series ex. titanic_survival.apply(function). By passing in the axis argument, we can use the .apply() method to iterate over rows instead of columns ex. titanic_survival.apply(function, axis=1);
 
 Numpy boolean operators:
 - the operational operators like < and >= work with Numpy arrays out of the box. Unfortunately, this is not true for the boolean operators and, or, and not. To use these operators with Numpy, you will need np.logical_and(), np.logical_or() and np.logical_not();
@@ -89,8 +97,12 @@ re module and regular expressions:
 - datetime.datetime.fromtimestamp() is used to convert the Unix timestamp to a datetime;
 
 Numpy:
-- to read in dataset use genfromtxt(), we need to pass a keyword argument called delimiter that indicates what character is the delimiter ex. np.genfromtxt('world_alcohol.csv',delimiter=',');
+- to read in dataset use genfromtxt(), we need to pass a keyword argument called delimiter that indicates what character is the delimiter ex. np.genfromtxt('world_alcohol.csv',delimiter=','), use dtype argument to specify data type, use 'U75' for diverse data types, additionally setting 'skip_header' will skip the first row;
 - we can directly construct arrays from lists using the array() method;
 - we can use the shape property on arrays to figure out how many elements are in an array. For vectors, the shape property contains a tuple with 1 element. A tuple is a kind of list where the elements can't be changed;
 - Each value in a NumPy array has to have the same data type. You can check the data type of a NumPy array using the dtype property;
-- 
+- indexing arrays is done in the [row, column] format, the colon by itself : specifies that the entirety of a single dimension should be selected. Think of the colon as selecting from the first element in a dimension up to and including the last element;
+- these two statements are equivalent world_alcohol[world_alcohol[:,3]=='Wine',3]='Grog' and world_alcohol[world_alcohol=='Wine']='Grog';
+- We can convert the data type of an array using the astype() method. Here's an example: vector = numpy.array(["1", "2", "3"]) /n
+vector = vector.astype(float);
+- NumPy has a few built-in methods that operate on arrays, ex. sum(), mean(), max(). With a matrix, we have to specify an additional keyword argument axis. The axis dictates which dimension we perform the operation on. 1 means that we want to perform the operation on each row, and 0 means on each column;
