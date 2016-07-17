@@ -79,6 +79,7 @@ np.max(series_custom)'. The values in a Series object are treated as an ndarray,
 - apply for rows in df rt_mt_means=rt_mt_user.apply(lambda x: np.mean(x), axis=1);
 - DataFrame method describe() generates summary statistics for all of the numeric columns;
 - df.dtypes return data type of each column;
+- pandas have .plot() method, where the 'kind' argument specifies the type of plot;
 
 Numpy boolean operators:
 - the operational operators like < and >= work with Numpy arrays out of the box. Unfortunately, this is not true for the boolean operators and, or, and not. To use these operators with Numpy, you will need np.logical_and(), np.logical_or() and np.logical_not();
