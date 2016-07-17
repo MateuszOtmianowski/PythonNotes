@@ -28,6 +28,11 @@ Visualisation:
 - plt.yticks([0,1,2], ["one","two","three"]) sets step on a y-axis, second argument sets names of ticks;
 - plt.scatter(gdp_cap, life_exp, s = pop) s argument stands for size of dots, additional arguments include c for color, and alpha for transparency (as in ggplot value from 0 to 1);
 - plt.grid() creates grid lines;
+- Seaborn is a Python library supported by Stanford University that enables you to create beautiful, presentation-ready data visualizations. If seaborn is imported into enviroment it overrides default styles. To import it use 'import seaborn as sns';
+- .distplot() is equivalent of .hist() from matplotlib, set kde parameter to False to generate standard, binned histogram;
+- When working with Seaborn plots, we recommend using sns.plt.show() instead of plt.show() to display the plot;
+- API reference for Seaborn can be found here: https://stanford.edu/~mwaskom/software/seaborn/api.html#style-frontend;
+- Instead of comparing relationships between variables by generating one chart for each combination of variables we're exploring, we can use a Seaborn pairplot() to automatically visualize all combinations of variables from columns in a DataFrame;
 
 Dictionaries:
 - dictionary.keys() gets keys from a dictionary;
