@@ -33,6 +33,8 @@ Visualisation:
 - When working with Seaborn plots, we recommend using sns.plt.show() instead of plt.show() to display the plot;
 - API reference for Seaborn can be found here: https://stanford.edu/~mwaskom/software/seaborn/api.html#style-frontend;
 - Instead of comparing relationships between variables by generating one chart for each combination of variables we're exploring, we can use a Seaborn pairplot() to automatically visualize all combinations of variables from columns in a DataFrame;
+- use '%matplotlib inline' to display plots in Jupyter Notebook;
+- 
 
 Dictionaries:
 - dictionary.keys() gets keys from a dictionary;
@@ -75,6 +77,8 @@ np.sin(series_custom)
 np.max(series_custom)'. The values in a Series object are treated as an ndarray, the core data type in NumPy. Applying some NumPy functions will return a new Series object while others will return just a single value. NumPy's documentation gives you a good sense of the return value for each function. If a particular NumPy function usually returns an ndarray, it will instead return a Series object when applied to a Series;
 - The DataFrame object contains a set_index() method that allows you to pass in the name of the column you'd like Pandas to use as the index for the DataFrame. Pandas, by default, will return a new DataFrame that is indexed by the values in the specified column and will drop that column from the DataFrame. The set_index() method contains a few parameters to tweak this behavior: inplace: if set to True, will set the index to the current DataFrame instead of returning a new one; drop: if set to False, will keep the column you specified for the index in the DataFrame;
 - apply for rows in df rt_mt_means=rt_mt_user.apply(lambda x: np.mean(x), axis=1);
+- DataFrame method describe() generates summary statistics for all of the numeric columns;
+- df.dtypes return data type of each column;
 
 Numpy boolean operators:
 - the operational operators like < and >= work with Numpy arrays out of the box. Unfortunately, this is not true for the boolean operators and, or, and not. To use these operators with Numpy, you will need np.logical_and(), np.logical_or() and np.logical_not();
