@@ -34,7 +34,39 @@ Visualisation:
 - API reference for Seaborn can be found here: https://stanford.edu/~mwaskom/software/seaborn/api.html#style-frontend;
 - Instead of comparing relationships between variables by generating one chart for each combination of variables we're exploring, we can use a Seaborn pairplot() to automatically visualize all combinations of variables from columns in a DataFrame;
 - use '%matplotlib inline' to display plots in Jupyter Notebook;
-- 
+
+Matplotlib internals:
+Figure is the top-level Matplotlib object that manages the entire plotting area. A Figure instance acts as a container for your plots and contains some useful parameters and methods like:
+                - The figsize(w,h) parameter lets you specify the width w and height h, in inches, of the plotting area
+                - The dpi parameter lets you specify the density, in dots per inch
+                - The .add_subplot() method lets you add individual plots to the Figure instance
+
+Subplot is the Matplotlib object that you use to create the axes for a plot. While a Figure can contain multiple subplots that are laid out on a grid, we'll start with just one plot.
+
+In the following code cell, we:
+- call plt.figure() to instantiate a new Figure instance (width: 5 inches, height: 7 inches)
+- assign the Figure to the variable fig
+- call .add_subplot(1,1,1) on the Figure instance to add an empty plot
+- assign the Subplot to the variable ax
+- call plt.show() to display our wonderful creation
+You'll notice we passed 1,1,1 into the Figure's .add_subplot() method. This style is called grid notation and you use it to express the layout of plots and which plot you want returned from that function call. You can break grid notation down into the 3 parameters:
+- the first parameter refers to the row number 1
+- the second parameter refers to the column number 2
+- the third parameter refers to the nth plot in the Figure to be returned (only 1 plot in this case)
+- A Subplot is an abstraction that creates an Axes object whenever you call .add_subplot(). An Axes object controls how the plotting actually happens. The Axes object describes what's actually inside the plot we're interested in (like the points in a scatter plot) and also describes the x and y axes, including the ticks, labels, etc. While each Figure instance can contain multiple plots, and therefore multiple Axes objects, that specify how each plot looks, each unique Axes object can only belong to one figure. Subplots and Axes are synonomous for our purposes, but working with Subplots is a much cleaner and convenient interface.
+
+When you instantiate an Axes object, Matplotlib creates, with default attributes:
+- a rectangle for the plot
+- default x-axis ticks
+- default y-axis ticks
+
+Even though default values are used for these properties upon instantiation, you can access and explicity modify them to get the plot you want.
+
+To prepare the x-axis and y-axis ticks for the data we'll be plotting, we can use the .set_xlim() and .set_ylim() methods on the Axes instance (ax) to set the range of values we want for the x-axis and y-axis ticks. In the code cell, we've set the range of values for the x-axis as 0 to 14. Both methods take a list as an argument. The first element in the list is the lower bound and the second element is the upper bound we want for that axis. 
+
+Matplotlib documentation: http://matplotlib.org/api/axes_api.html
+
+Matplotlib thankfully has a .set() method that we can use to specify all the attributes we want that Axes object to have in the parameters of that function call.
 
 Dictionaries:
 - dictionary.keys() gets keys from a dictionary;
