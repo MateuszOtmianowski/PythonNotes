@@ -160,3 +160,4 @@ Numpy:
 - We can convert the data type of an array using the astype() method. Here's an example: vector = numpy.array(["1", "2", "3"]) /n
 vector = vector.astype(float);
 - NumPy has a few built-in methods that operate on arrays, ex. sum(), mean(), max(). With a matrix, we have to specify an additional keyword argument axis. The axis dictates which dimension we perform the operation on. 1 means that we want to perform the operation on each row, and 0 means on each column;
+- Selecting data from an array by boolean indexing always creates a copy of the data, even if the returned array is unchanged.
